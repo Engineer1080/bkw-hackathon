@@ -1,6 +1,6 @@
 # BKW AI Planning Assistant 🏗️
 
-Modern Next.js web application for automated building planning with AI. Built for the BKW Engineering Hackathon 2024.
+Modern Next.js web application for automated building planning with AI. Built for the BKW Engineering Hackathon 2025.
 
 ## Features
 
@@ -9,15 +9,17 @@ Modern Next.js web application for automated building planning with AI. Built fo
 - 📊 **Performance Analysis**: Heating, cooling, and ventilation calculations
 - 📄 **Report Generation**: Professional documentation in DOCX/PDF format
 - 🎨 **Modern UI**: Beautiful interface with Framer Motion animations
+- 🖼️ **Hero Background**: Stunning modern office imagery
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **HTTP Client**: Axios
+- **React**: React 19
 
 ## Getting Started
 
@@ -30,7 +32,7 @@ Modern Next.js web application for automated building planning with AI. Built fo
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Engineer1080/bkw-hackathon.git
 cd bkw-hackathon
 ```
 
@@ -111,12 +113,14 @@ bkw-hackathon/
 ├── app/
 │   ├── globals.css          # Global styles
 │   ├── layout.tsx            # Root layout
-│   └── page.tsx              # Main page
+│   └── page.tsx              # Main page with hero background
 ├── components/
 │   ├── FileUpload.tsx        # File upload component
 │   └── ResultsDashboard.tsx  # Results display
-├── public/                   # Static assets
+├── public/
+│   └── modern_office.jpg     # Hero background image
 ├── .env.example              # Environment variables template
+├── .gitignore                # Git ignore rules
 ├── next.config.js            # Next.js configuration
 ├── package.json              # Dependencies
 ├── tailwind.config.js        # Tailwind CSS config
@@ -194,9 +198,18 @@ npm run build
 npm start
 ```
 
+## Recent Updates
+
+- ✅ Updated to Next.js 15
+- ✅ Updated to React 19
+- ✅ Added modern office hero background
+- ✅ Improved gradient styling for "AI-Powered" text
+- ✅ Enhanced glassmorphism effects
+- ✅ Updated year references to 2025
+
 ## License
 
-MIT License - Built for BKW Engineering Hackathon 2024
+MIT License - Built for BKW Engineering Hackathon 2025
 
 ## Support
 
@@ -204,4 +217,6 @@ For issues or questions, please open an issue on GitHub or contact the team.
 
 ---
 
-**Built with ❤️ for the BKW Engineering Hackathon 2024**
+**Built with ❤️ for the BKW Engineering Hackathon 2025**
+
+🔗 **Repository**: [https://github.com/Engineer1080/bkw-hackathon](https://github.com/Engineer1080/bkw-hackathon)
