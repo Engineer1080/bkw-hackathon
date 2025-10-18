@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Upload, File, X, Check, AlertCircle } from 'lucide-react'
 import axios from 'axios'
@@ -20,14 +20,14 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
   })
   const [error, setError] = useState<string | null>(null)
 
-  const acceptedFileTypes = [
+  const acceptedFileTypes = useMemo(() => [
     '.ifc',
     '.rvt',
     '.xlsx',
     '.xlsm',
     '.xls',
     '.pdf'
-  ]
+  ], [])
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault()
@@ -38,21 +38,6 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
     e.preventDefault()
     setIsDragging(false)
   }, [])
-
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragging(false)
-    
-    const droppedFiles = Array.from(e.dataTransfer.files)
-    addFiles(droppedFiles)
-  }, [])
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const selectedFiles = Array.from(e.target.files)
-      addFiles(selectedFiles)
-    }
-  }
 
   const addFiles = (newFiles: File[]) => {
     const validFiles = newFiles.filter(file => {
@@ -66,6 +51,31 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
     }
     
     setFiles(prev => [...prev, ...validFiles])
+  }
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(false)
+    
+    const droppedFiles = Array.from(e.dataTransfer.files)
+    const validFiles = droppedFiles.filter(file => {
+      const extension = '.' + file.name.split('.').pop()?.toLowerCase()
+      return acceptedFileTypes.includes(extension)
+    })
+    
+    if (validFiles.length !== droppedFiles.length) {
+      setError('Some files were rejected. Please upload only IFC, RVT, Excel, or PDF files.')
+      setTimeout(() => setError(null), 5000)
+    }
+    
+    setFiles(prev => [...prev, ...validFiles])
+  }, [acceptedFileTypes])
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const selectedFiles = Array.from(e.target.files)
+      addFiles(selectedFiles)
+    }
   }
 
   const removeFile = (index: number) => {
