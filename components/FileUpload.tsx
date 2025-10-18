@@ -143,8 +143,8 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        className={`card relative cursor-pointer transition-all ${
-          isDragging ? 'border-bkw-orange border-4 bg-orange-50' : 'border-dashed border-2 border-slate-300'
+        className={`card relative cursor-pointer transition-all bg-white dark:bg-slate-800 ${
+          isDragging ? 'border-bkw-orange border-4 bg-orange-50 dark:bg-orange-950' : 'border-dashed border-2 border-slate-300 dark:border-slate-600'
         }`}
       >
         <input
@@ -164,13 +164,13 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
             <Upload className="w-10 h-10 text-white" />
           </motion.div>
           
-          <h3 className="text-2xl font-bold mb-2">
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">
             {isDragging ? 'Drop your files here' : 'Upload Your Files'}
           </h3>
-          <p className="text-slate-600 mb-4">
+          <p className="text-slate-600 dark:text-slate-300 mb-4">
             Drag and drop or click to browse
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             Supported: IFC, RVT, XLSX, XLSM, PDF (Max 100MB each)
           </p>
         </div>
@@ -185,7 +185,7 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
             exit={{ opacity: 0, height: 0 }}
             className="space-y-3"
           >
-            <h4 className="font-semibold text-lg flex items-center gap-2">
+            <h4 className="font-semibold text-lg flex items-center gap-2 dark:text-white">
               <Check className="w-5 h-5 text-green-600" />
               Uploaded Files ({files.length})
             </h4>
@@ -196,22 +196,22 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="flex items-center justify-between p-4 bg-white rounded-lg border border-slate-200"
+                className="flex items-center justify-between p-4 bg-white dark:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-600"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <File className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                    <File className="w-5 h-5 text-blue-600 dark:text-blue-300" />
                   </div>
                   <div>
-                    <p className="font-medium text-slate-900">{file.name}</p>
-                    <p className="text-sm text-slate-500">{formatFileSize(file.size)}</p>
+                    <p className="font-medium text-slate-900 dark:text-white">{file.name}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{formatFileSize(file.size)}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => removeFile(index)}
-                  className="p-2 hover:bg-red-50 rounded-lg transition"
+                  className="p-2 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition"
                 >
-                  <X className="w-5 h-5 text-red-600" />
+                  <X className="w-5 h-5 text-red-600 dark:text-red-400" />
                 </button>
               </motion.div>
             ))}
@@ -220,12 +220,12 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
       </AnimatePresence>
 
       {/* Project Information */}
-      <div className="card space-y-4">
-        <h4 className="font-semibold text-lg">Project Information (Optional)</h4>
+      <div className="card space-y-4 bg-white dark:bg-slate-800">
+        <h4 className="font-semibold text-lg dark:text-white">Project Information (Optional)</h4>
         
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Location
             </label>
             <input
@@ -233,18 +233,18 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
               value={projectInfo.location}
               onChange={(e) => setProjectInfo(prev => ({ ...prev, location: e.target.value }))}
               placeholder="e.g., München, Germany"
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none"
+              className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Building Type
             </label>
             <select
               value={projectInfo.buildingType}
               onChange={(e) => setProjectInfo(prev => ({ ...prev, buildingType: e.target.value }))}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none"
+              className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
             >
               <option value="">Select type...</option>
               <option value="office">Office Building</option>
@@ -258,7 +258,7 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
         </div>
         
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
             Special Requirements
           </label>
           <textarea
@@ -266,7 +266,7 @@ export default function FileUpload({ onProcessingComplete, setIsProcessing }: Fi
             onChange={(e) => setProjectInfo(prev => ({ ...prev, specialRequirements: e.target.value }))}
             placeholder="e.g., Laboratory rooms on ground floor, high energy efficiency requirements..."
             rows={3}
-            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none resize-none"
+            className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-bkw-orange focus:border-transparent outline-none resize-none bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
           />
         </div>
       </div>

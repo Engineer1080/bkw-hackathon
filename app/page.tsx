@@ -2,13 +2,15 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Upload, FileText, DollarSign, BookOpen, Sparkles, CheckCircle, ArrowRight, Zap, Brain, TrendingUp } from 'lucide-react'
+import { Upload, FileText, DollarSign, BookOpen, Sparkles, CheckCircle, ArrowRight, Zap, Brain, TrendingUp, Moon, Sun } from 'lucide-react'
 import FileUpload from '@/components/FileUpload'
 import ResultsDashboard from '@/components/ResultsDashboard'
+import { useTheme } from './ThemeProvider'
 
 export default function Home() {
   const [results, setResults] = useState<any>(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   const handleProcessingComplete = (data: any) => {
     setResults(data)
@@ -43,12 +45,12 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors">
       {/* Header */}
       <motion.header 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full bg-white/80 backdrop-blur-xl border-b border-slate-200 z-50"
+        className="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700 z-50"
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -56,16 +58,27 @@ export default function Home() {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900">BKW AI Assistant</h1>
-              <p className="text-xs text-slate-600">Smarter Building Planning</p>
+              <h1 className="text-xl font-bold text-slate-900 dark:text-white">BKW AI Assistant</h1>
+              <p className="text-xs text-slate-600 dark:text-slate-400">Smarter Building Planning</p>
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-slate-600 hover:text-bkw-orange transition">Features</a>
-            <a href="#upload" className="text-slate-600 hover:text-bkw-orange transition">Upload</a>
-            <button className="bg-bkw-orange text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition">
-              Get Started
-            </button>
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
+              <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Features</a>
+              <a href="#upload" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Upload</a>
+              <button className="bg-bkw-orange text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition">
+                Get Started
+              </button>
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            </motion.button>
           </div>
         </div>
       </motion.header>
@@ -138,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6 bg-white">
+      <section id="features" className="py-20 px-6 bg-white dark:bg-slate-800">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -146,10 +159,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">
               Three Problems. <span className="text-gradient">One Solution.</span>
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-slate-600 dark:text-slate-300">
               Our AI handles the entire planning workflow automatically
             </p>
           </motion.div>
@@ -163,14 +176,14 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="card relative overflow-hidden group"
+                className="card relative overflow-hidden group bg-white dark:bg-slate-700"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
                 <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center text-white mb-4`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
+                <h3 className="text-2xl font-bold mb-3 dark:text-white">{feature.title}</h3>
+                <p className="text-slate-600 dark:text-slate-300">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -178,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* Upload Section */}
-      <section id="upload" className="py-20 px-6">
+      <section id="upload" className="py-20 px-6 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -186,10 +199,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">
               Ready to <span className="text-gradient">Transform</span> Your Workflow?
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-slate-600 dark:text-slate-300">
               Upload your files and let AI do the heavy lifting
             </p>
           </motion.div>
@@ -203,11 +216,11 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-12 glass-card text-center"
+              className="mt-12 glass-card text-center bg-white/90 dark:bg-slate-800/90"
             >
               <div className="animate-spin w-12 h-12 border-4 border-bkw-orange border-t-transparent rounded-full mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Processing Your Files...</h3>
-              <p className="text-slate-600">Our AI is analyzing rooms, calculating costs, and generating reports</p>
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">Processing Your Files...</h3>
+              <p className="text-slate-600 dark:text-slate-300">Our AI is analyzing rooms, calculating costs, and generating reports</p>
             </motion.div>
           )}
         </div>
@@ -215,7 +228,7 @@ export default function Home() {
 
       {/* Results Section */}
       {results && (
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-white dark:bg-slate-800">
           <div className="max-w-7xl mx-auto">
             <ResultsDashboard results={results} />
           </div>
@@ -223,7 +236,7 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12 px-6">
+      <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12 px-6 border-t border-slate-800">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 h-10 bg-gradient-to-br from-bkw-orange to-bkw-blue rounded-lg flex items-center justify-center">
@@ -231,10 +244,10 @@ export default function Home() {
             </div>
             <span className="text-2xl font-bold">BKW AI Assistant</span>
           </div>
-          <p className="text-slate-400 mb-6">
+          <p className="text-slate-400 dark:text-slate-500 mb-6">
             Built for the BKW Engineering Hackathon 2025
           </p>
-          <div className="flex items-center justify-center gap-2 text-sm text-slate-500">
+          <div className="flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-600">
             <CheckCircle className="w-4 h-4 text-green-500" />
             <span>Railway Deployment Ready</span>
           </div>
