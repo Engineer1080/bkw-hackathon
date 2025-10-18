@@ -191,8 +191,18 @@ export default function Home() {
       </section>
 
       {/* Upload Section */}
-      <section id="upload" className="py-20 px-6 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto">
+      <section id="upload" className="relative py-20 px-6 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/residential_building.jpg)' }}
+          />
+          {/* Light Overlay for better content readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-slate-50/85 to-slate-50/90 dark:from-slate-900/90 dark:via-slate-900/85 dark:to-slate-900/90" />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
