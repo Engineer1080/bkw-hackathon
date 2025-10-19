@@ -6,6 +6,7 @@ import { Upload, FileText, DollarSign, BookOpen, Sparkles, CheckCircle, ArrowRig
 import FileUpload from '@/components/FileUpload'
 import ResultsDashboard from '@/components/ResultsDashboard'
 import RoomTypePredictor from '@/components/RoomTypePredictor'
+import AIReportGenerator from '@/components/AIReportGenerator'
 import { useTheme } from './ThemeProvider'
 
 export default function Home() {
@@ -67,7 +68,7 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-6">
               <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Features</a>
               <a href="#upload" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Upload</a>
-              <a href="#quick-prediction" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Quick Prediction</a>
+              <a href="#ai-report" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">AI Report</a>
               <a href="#upload" className="bg-bkw-orange text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition">
                 Get Started
               </a>
@@ -256,6 +257,72 @@ export default function Home() {
           </motion.div>
 
           <RoomTypePredictor />
+        </div>
+      </section>
+
+      {/* AI Report Generator Section */}
+      <section id="ai-report" className="py-20 px-6 bg-slate-50 dark:bg-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">
+              AI-Powered <span className="text-gradient">Erläuterungsbericht</span>
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300">
+              Generieren Sie professionelle HOAI-konforme Berichte mit Claude Sonnet 4.5
+            </p>
+          </motion.div>
+
+          <AIReportGenerator />
+
+          {/* Feature Highlights */}
+          <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="card bg-white dark:bg-slate-800 text-center"
+            >
+              <div className="text-4xl mb-3">🤖</div>
+              <h3 className="font-bold mb-2 dark:text-white">AI-Powered</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Claude Sonnet 4.5 generiert intelligente, kontextbezogene Inhalte
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="card bg-white dark:bg-slate-800 text-center"
+            >
+              <div className="text-4xl mb-3">📋</div>
+              <h3 className="font-bold mb-2 dark:text-white">HOAI-Konform</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Erläuterungsberichte nach Leistungsphase 2 (HOAI)
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="card bg-white dark:bg-slate-800 text-center"
+            >
+              <div className="text-4xl mb-3">⚡</div>
+              <h3 className="font-bold mb-2 dark:text-white">Schnell</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Kompletter Bericht in 30-60 Sekunden statt Stunden
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 

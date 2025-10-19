@@ -7,10 +7,11 @@ Modern Next.js web application for automated building planning with AI. Built fo
 - 🤖 **AI-Powered Classification**: Automatic room type detection with FastAPI ML backend
 - 💰 **Cost Estimation**: DIN 276 compliant cost calculations
 - 📊 **Performance Analysis**: Heating, cooling, and ventilation calculations
-- 📄 **Report Generation**: Professional documentation in DOCX/PDF format
+- 📄 **AI Report Generation**: HOAI-compliant explanatory reports powered by Claude Sonnet 4.5
 - 🎨 **Modern UI**: Beautiful interface with Framer Motion animations
 - 🖼️ **Hero Background**: Stunning modern office imagery
 - ⚡ **Quick Prediction**: Real-time room type prediction based on volume, area, and heating load
+- 🌙 **Dark Mode**: Full dark mode support with theme persistence
 
 ## Tech Stack
 
@@ -123,7 +124,8 @@ bkw-hackathon/
 ├── components/
 │   ├── FileUpload.tsx        # File upload component
 │   ├── ResultsDashboard.tsx  # Results display
-│   └── RoomTypePredictor.tsx # Quick room type prediction
+│   ├── RoomTypePredictor.tsx # Quick room type prediction
+│   └── AIReportGenerator.tsx # AI-powered report generation
 ├── lib/
 │   └── api.ts                # FastAPI client & type definitions
 ├── public/
@@ -165,6 +167,20 @@ The application integrates with a FastAPI backend for room type prediction:
   }
 }
 ```
+
+### AI Report Generation API
+
+**Endpoint**: `POST /generate_report`
+
+**Request** (multipart/form-data):
+- `request`: JSON string with project details
+- `room_book`: Excel file (optional)
+- `cost_estimate`: Excel file (optional)
+- `export_format`: "docx" or "markdown"
+
+**Response**: Binary file (DOCX or Markdown)
+
+The report generation typically takes 30-60 seconds as Claude AI generates each section intelligently.
 
 ### File Processing Backend (Optional)
 
