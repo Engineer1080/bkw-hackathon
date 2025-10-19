@@ -31,47 +31,84 @@ export default function AppleIcon() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Building */}
-          <rect x="35" y="30" width="50" height="70" fill="white" opacity="0.95" rx="2" />
+          {/* Skyscraper */}
+          <rect x="40" y="15" width="40" height="90" fill="#FF8C00" rx="2" />
           
-          {/* Windows Grid */}
-          <rect x="42" y="38" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="55" y="38" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="68" y="38" width="10" height="10" fill="#FF6B00" rx="1" />
+          {/* Windows Grid (4 columns x 15 rows) */}
+          {/* Row 1 */}
+          <rect x="44" y="20" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="20" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="20" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="20" width="4" height="5" fill="white" rx="0.5" />
           
-          <rect x="42" y="52" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="55" y="52" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="68" y="52" width="10" height="10" fill="#FF6B00" rx="1" />
+          {/* Row 2 */}
+          <rect x="44" y="27" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="27" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="27" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="27" width="4" height="5" fill="white" rx="0.5" />
           
-          <rect x="42" y="66" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="55" y="66" width="10" height="10" fill="#FF6B00" rx="1" />
-          <rect x="68" y="66" width="10" height="10" fill="#FF6B00" rx="1" />
+          {/* Row 3 */}
+          <rect x="44" y="34" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="34" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="34" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="34" width="4" height="5" fill="white" rx="0.5" />
           
-          {/* Door */}
-          <rect x="52" y="85" width="16" height="15" fill="#003DA5" rx="1" />
+          {/* Row 4 */}
+          <rect x="44" y="41" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="41" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="41" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="41" width="4" height="5" fill="white" rx="0.5" />
           
-          {/* Roof */}
-          <path d="M 30 30 L 60 10 L 90 30 Z" fill="white" opacity="0.95" />
+          {/* Row 5 */}
+          <rect x="44" y="48" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="48" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="48" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="48" width="4" height="5" fill="white" rx="0.5" />
           
-          {/* AI Neural Network */}
-          <circle cx="15" cy="25" r="4" fill="white" opacity="0.8" />
-          <circle cx="105" cy="25" r="4" fill="white" opacity="0.8" />
-          <circle cx="15" cy="95" r="4" fill="white" opacity="0.8" />
-          <circle cx="105" cy="95" r="4" fill="white" opacity="0.8" />
-          <circle cx="60" cy="10" r="5" fill="#003DA5" opacity="0.9" />
+          {/* Row 6 */}
+          <rect x="44" y="55" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="55" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="55" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="55" width="4" height="5" fill="white" rx="0.5" />
           
-          {/* Connection Lines */}
-          <line x1="15" y1="25" x2="60" y2="10" stroke="white" strokeWidth="2" opacity="0.5" />
-          <line x1="105" y1="25" x2="60" y2="10" stroke="white" strokeWidth="2" opacity="0.5" />
+          {/* Row 7 */}
+          <rect x="44" y="62" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="62" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="62" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="62" width="4" height="5" fill="white" rx="0.5" />
           
-          {/* AI Sparkles */}
-          <g transform="translate(95, 85)">
-            <path
-              d="M 0 -8 L 2 -2 L 8 0 L 2 2 L 0 8 L -2 2 L -8 0 L -2 -2 Z"
-              fill="white"
-              opacity="0.9"
-            />
-          </g>
+          {/* Row 8 */}
+          <rect x="44" y="69" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="69" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="69" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="69" width="4" height="5" fill="white" rx="0.5" />
+          
+          {/* Row 9 */}
+          <rect x="44" y="76" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="76" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="76" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="76" width="4" height="5" fill="white" rx="0.5" />
+          
+          {/* Row 10 */}
+          <rect x="44" y="83" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="83" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="83" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="83" width="4" height="5" fill="white" rx="0.5" />
+          
+          {/* Row 11 */}
+          <rect x="44" y="90" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="90" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="90" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="90" width="4" height="5" fill="white" rx="0.5" />
+          
+          {/* Row 12 */}
+          <rect x="44" y="97" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="51" y="97" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="58" y="97" width="4" height="5" fill="white" rx="0.5" />
+          <rect x="65" y="97" width="4" height="5" fill="white" rx="0.5" />
+          
+          {/* Entrance/Lobby */}
+          <rect x="54" y="100" width="12" height="5" fill="white" rx="1" />
         </svg>
       </div>
     ),

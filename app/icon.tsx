@@ -32,22 +32,31 @@ export default function Icon() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Building */}
-          <rect x="8" y="6" width="8" height="12" fill="white" />
+          {/* Skyscraper */}
+          <rect x="8" y="3" width="8" height="18" fill="#FF8C00" rx="1" />
           {/* Windows */}
-          <rect x="9" y="8" width="2" height="2" fill="#FF6B00" />
-          <rect x="13" y="8" width="2" height="2" fill="#FF6B00" />
-          <rect x="9" y="11" width="2" height="2" fill="#FF6B00" />
-          <rect x="13" y="11" width="2" height="2" fill="#FF6B00" />
-          {/* Door */}
-          <rect x="11" y="15" width="2" height="3" fill="#003DA5" />
-          {/* Roof */}
-          <path d="M 7 6 L 12 3 L 17 6 Z" fill="white" />
-          {/* AI Sparkle */}
-          <path
-            d="M 18 16 L 18.5 17.5 L 20 18 L 18.5 18.5 L 18 20 L 17.5 18.5 L 16 18 L 17.5 17.5 Z"
-            fill="white"
-          />
+          <rect x="9" y="5" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="11" y="5" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="13.5" y="5" width="1.5" height="2" fill="white" rx="0.3" />
+          
+          <rect x="9" y="8" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="11" y="8" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="13.5" y="8" width="1.5" height="2" fill="white" rx="0.3" />
+          
+          <rect x="9" y="11" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="11" y="11" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="13.5" y="11" width="1.5" height="2" fill="white" rx="0.3" />
+          
+          <rect x="9" y="14" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="11" y="14" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="13.5" y="14" width="1.5" height="2" fill="white" rx="0.3" />
+          
+          <rect x="9" y="17" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="11" y="17" width="1.5" height="2" fill="white" rx="0.3" />
+          <rect x="13.5" y="17" width="1.5" height="2" fill="white" rx="0.3" />
+          
+          {/* Entrance */}
+          <rect x="10.5" y="19.5" width="3" height="1.5" fill="white" rx="0.3" />
         </svg>
       </div>
     ),
