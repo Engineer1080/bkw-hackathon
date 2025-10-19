@@ -7,7 +7,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'BKW AI Planning Assistant',
-  description: 'Smarter and more accurate building planning with AI',
+  description: 'Smarter and more accurate building planning with AI - BKW Engineering x TUM.ai Hackathon 2025',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: '/apple-icon',
+  },
 }
 
 export default function RootLayout({
