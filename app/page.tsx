@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Upload, FileText, DollarSign, BookOpen, Sparkles, CheckCircle, ArrowRight, Zap, Brain, TrendingUp, Moon, Sun } from 'lucide-react'
 import FileUpload from '@/components/FileUpload'
 import ResultsDashboard from '@/components/ResultsDashboard'
+import RoomTypePredictor from '@/components/RoomTypePredictor'
 import { useTheme } from './ThemeProvider'
 
 export default function Home() {
@@ -66,9 +67,10 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-6">
               <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Features</a>
               <a href="#upload" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Upload</a>
-              <button className="bg-bkw-orange text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition">
+              <a href="#quick-prediction" className="text-slate-600 dark:text-slate-300 hover:text-bkw-orange transition">Quick Prediction</a>
+              <a href="#upload" className="bg-bkw-orange text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition">
                 Get Started
-              </button>
+              </a>
             </div>
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -233,6 +235,27 @@ export default function Home() {
               <p className="text-slate-600 dark:text-slate-300">Our AI is analyzing rooms, calculating costs, and generating reports</p>
             </motion.div>
           )}
+        </div>
+      </section>
+
+      {/* Quick Prediction Section */}
+      <section id="quick-prediction" className="py-20 px-6 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">
+              Schnelle <span className="text-gradient">Raumtyp-Analyse</span>
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300">
+              Geben Sie die Raumparameter ein und erhalten Sie sofort eine KI-Vorhersage
+            </p>
+          </motion.div>
+
+          <RoomTypePredictor />
         </div>
       </section>
 

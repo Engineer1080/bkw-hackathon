@@ -4,12 +4,13 @@ Modern Next.js web application for automated building planning with AI. Built fo
 
 ## Features
 
-- 🤖 **AI-Powered Classification**: Automatic room type detection
+- 🤖 **AI-Powered Classification**: Automatic room type detection with FastAPI ML backend
 - 💰 **Cost Estimation**: DIN 276 compliant cost calculations
 - 📊 **Performance Analysis**: Heating, cooling, and ventilation calculations
 - 📄 **Report Generation**: Professional documentation in DOCX/PDF format
 - 🎨 **Modern UI**: Beautiful interface with Framer Motion animations
 - 🖼️ **Hero Background**: Stunning modern office imagery
+- ⚡ **Quick Prediction**: Real-time room type prediction based on volume, area, and heating load
 
 ## Tech Stack
 
@@ -43,12 +44,17 @@ npm install
 
 3. Create a `.env.local` file:
 ```bash
-cp .env.example .env.local
+# Create .env.local with the following content:
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 4. Update the API endpoint in `.env.local`:
 ```
-NEXT_PUBLIC_API_URL=http://your-backend-url/api/process
+# For local FastAPI development
+NEXT_PUBLIC_API_URL=http://localhost:8000
+
+# For production
+NEXT_PUBLIC_API_URL=https://your-fastapi-service.railway.app
 ```
 
 5. Run the development server:
@@ -116,9 +122,13 @@ bkw-hackathon/
 │   └── page.tsx              # Main page with hero background
 ├── components/
 │   ├── FileUpload.tsx        # File upload component
-│   └── ResultsDashboard.tsx  # Results display
+│   ├── ResultsDashboard.tsx  # Results display
+│   └── RoomTypePredictor.tsx # Quick room type prediction
+├── lib/
+│   └── api.ts                # FastAPI client & type definitions
 ├── public/
-│   └── modern_office.jpg     # Hero background image
+│   ├── modern_office.jpg     # Hero background image
+│   └── residential_building.jpg # Upload section background
 ├── .env.example              # Environment variables template
 ├── .gitignore                # Git ignore rules
 ├── next.config.js            # Next.js configuration
@@ -127,9 +137,38 @@ bkw-hackathon/
 └── tsconfig.json             # TypeScript config
 ```
 
-## Backend Integration
+## API Integration
 
-The frontend expects a POST endpoint at `/api/process` that:
+### FastAPI ML Backend
+
+The application integrates with a FastAPI backend for room type prediction:
+
+**Endpoint**: `POST /predict`
+
+**Request Body**:
+```json
+{
+  "volume_m3": 150.0,
+  "area_m2": 50.0,
+  "total_heating_load_kw": 12.5
+}
+```
+
+**Response**:
+```json
+{
+  "Room_Type_No": 1,
+  "input": {
+    "volume_m3": 150.0,
+    "area_m2": 50.0,
+    "total_heating_load_kw": 12.5
+  }
+}
+```
+
+### File Processing Backend (Optional)
+
+The frontend also supports a file processing endpoint at `/api/process` that:
 
 **Input:**
 - `files`: Array of uploaded files (IFC, RVT, Excel, PDF)
