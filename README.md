@@ -5,13 +5,14 @@ Modern Next.js web application for automated building planning with AI. Built fo
 ## Features
 
 - 🤖 **AI-Powered Classification**: Automatic room type detection with FastAPI ML backend
-- 💰 **Cost Estimation**: DIN 276 compliant cost calculations
+- 💰 **AI Cost Estimation**: Intelligent TGA cost estimation with Claude Sonnet 4.5 (DIN 276 compliant)
 - 📊 **Performance Analysis**: Heating, cooling, and ventilation calculations
 - 📄 **AI Report Generation**: HOAI-compliant explanatory reports powered by Claude Sonnet 4.5
 - 🎨 **Modern UI**: Beautiful interface with Framer Motion animations
 - 🖼️ **Hero Background**: Stunning modern office imagery
 - ⚡ **Quick Prediction**: Real-time room type prediction based on volume, area, and heating load
 - 🌙 **Dark Mode**: Full dark mode support with theme persistence
+- 📈 **Detailed Cost Breakdown**: All TGA cost groups (KG 410-480) with intelligent descriptions
 
 ## Tech Stack
 
@@ -125,7 +126,8 @@ bkw-hackathon/
 │   ├── FileUpload.tsx        # File upload component
 │   ├── ResultsDashboard.tsx  # Results display
 │   ├── RoomTypePredictor.tsx # Quick room type prediction
-│   └── AIReportGenerator.tsx # AI-powered report generation
+│   ├── AIReportGenerator.tsx # AI-powered report generation
+│   └── CostEstimator.tsx     # AI-powered cost estimation
 ├── lib/
 │   └── api.ts                # FastAPI client & type definitions
 ├── public/
@@ -181,6 +183,63 @@ The application integrates with a FastAPI backend for room type prediction:
 **Response**: Binary file (DOCX or Markdown)
 
 The report generation typically takes 30-60 seconds as Claude AI generates each section intelligently.
+
+### AI Cost Estimation API
+
+**Endpoint**: `POST /estimate-costs`
+
+**Request Body**:
+```json
+{
+  "project_name": "Neubau Zentrale Muster GmbH",
+  "location": "München, Bayern",
+  "project_type": "office",
+  "federal_state": "Bayern",
+  "total_area_m2": 5000,
+  "number_of_rooms": 150,
+  "building_height_m": 18.5
+}
+```
+
+**Response**:
+```json
+{
+  "success": true,
+  "project_name": "Neubau Zentrale Muster GmbH",
+  "total_area_m2": 5000,
+  "cost_estimation": {
+    "kg_410": {
+      "betrag": 500000,
+      "pro_m2": 100,
+      "beschreibung": "Sanitäranlagen mit modernen Armaturen..."
+    },
+    "kg_420": { "betrag": 750000, "pro_m2": 150, "beschreibung": "..." },
+    "kg_430": { "betrag": 625000, "pro_m2": 125, "beschreibung": "..." },
+    "kg_434": { "betrag": 400000, "pro_m2": 80, "beschreibung": "..." },
+    "kg_440": { "betrag": 600000, "pro_m2": 120, "beschreibung": "..." },
+    "kg_470": { "betrag": 150000, "pro_m2": 30, "beschreibung": "..." },
+    "kg_480": { "betrag": 200000, "pro_m2": 40, "beschreibung": "..." },
+    "gesamt_kg_400": {
+      "betrag": 3225000,
+      "pro_m2": 645
+    },
+    "genauigkeit": "±30% (Kostenschätzung nach LP2)",
+    "hinweise": [
+      "Kosten basieren auf mittlerem Standard",
+      "Standort München berücksichtigt"
+    ]
+  },
+  "generated_by": "Claude Sonnet 4.5",
+  "disclaimer": "Kostenschätzung nach DIN 276, Genauigkeit ±30%, Stand LP2"
+}
+```
+
+**Features**:
+- 🎯 Intelligent cost calculation based on building type and location
+- 📊 Detailed breakdown for all TGA cost groups (KG 410-480)
+- 🏗️ Considers federal state (labor costs), building type, and area
+- ⚡ Fast response time (5-10 seconds)
+- 💡 AI-generated descriptions and recommendations
 
 ### File Processing Backend (Optional)
 
@@ -257,10 +316,14 @@ npm start
 
 - ✅ Updated to Next.js 15
 - ✅ Updated to React 19
+- ✅ Added AI Cost Estimation with Claude Sonnet 4.5
 - ✅ Added modern office hero background
 - ✅ Improved gradient styling for "AI-Powered" text
 - ✅ Enhanced glassmorphism effects
+- ✅ Dark Mode support with theme persistence
 - ✅ Updated year references to 2025
+- ✅ Integrated FastAPI ML backend for room type prediction
+- ✅ AI Report Generation with HOAI compliance
 
 ## License
 

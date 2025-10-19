@@ -7,6 +7,7 @@ import FileUpload from '@/components/FileUpload'
 import ResultsDashboard from '@/components/ResultsDashboard'
 import RoomTypePredictor from '@/components/RoomTypePredictor'
 import AIReportGenerator from '@/components/AIReportGenerator'
+import CostEstimator from '@/components/CostEstimator'
 import { useTheme } from './ThemeProvider'
 
 export default function Home() {
@@ -326,9 +327,89 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Cost Estimation Section */}
+      <section id="cost-estimation" className="py-20 px-6 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">
+              KI-gestützte <span className="text-gradient">Kostenschätzung</span>
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300">
+              Detaillierte TGA-Kostenschätzung nach DIN 276 mit Claude Sonnet 4.5
+            </p>
+          </motion.div>
+
+          <CostEstimator />
+
+          {/* Cost Estimation Features */}
+          <div className="mt-12 grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="card bg-slate-50 dark:bg-slate-900 text-center"
+            >
+              <div className="text-4xl mb-3">💰</div>
+              <h3 className="font-bold mb-2 dark:text-white">DIN 276</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Kostengruppen nach deutscher Norm
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="card bg-slate-50 dark:bg-slate-900 text-center"
+            >
+              <div className="text-4xl mb-3">🎯</div>
+              <h3 className="font-bold mb-2 dark:text-white">Präzise</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Intelligente Richtwerte nach Gebäudetyp
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="card bg-slate-50 dark:bg-slate-900 text-center"
+            >
+              <div className="text-4xl mb-3">⚡</div>
+              <h3 className="font-bold mb-2 dark:text-white">Schnell</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Ergebnisse in 5-10 Sekunden
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="card bg-slate-50 dark:bg-slate-900 text-center"
+            >
+              <div className="text-4xl mb-3">📊</div>
+              <h3 className="font-bold mb-2 dark:text-white">Detailliert</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Alle TGA-Kostengruppen (KG 410-480)
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Results Section */}
       {results && (
-        <section className="py-20 px-6 bg-white dark:bg-slate-800">
+        <section className="py-20 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <ResultsDashboard results={results} />
           </div>

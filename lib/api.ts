@@ -138,3 +138,66 @@ export function downloadBlob(blob: Blob, filename: string) {
   document.body.removeChild(a);
 }
 
+// ============================================================================
+// AI Cost Estimation
+// ============================================================================
+
+export interface CostEstimationRequest {
+  project_name: string;
+  location: string;
+  project_type: "office" | "laboratory" | "hospital" | "school" | "residential";
+  federal_state: string;
+  total_area_m2: number;
+  number_of_rooms?: number;
+  building_height_m?: number;
+}
+
+export interface CostGroup {
+  betrag: number;
+  pro_m2: number;
+  beschreibung: string;
+}
+
+export interface CostEstimationResponse {
+  success: boolean;
+  project_name: string;
+  total_area_m2: number;
+  cost_estimation: {
+    kg_410: CostGroup;
+    kg_420: CostGroup;
+    kg_430: CostGroup;
+    kg_434: CostGroup;
+    kg_440: CostGroup;
+    kg_470: CostGroup;
+    kg_480: CostGroup;
+    gesamt_kg_400: { betrag: number; pro_m2: number };
+    genauigkeit: string;
+    hinweise: string[];
+  };
+  generated_by: string;
+  disclaimer: string;
+}
+
+/**
+ * Generate AI-powered cost estimation using Claude Sonnet 4.5
+ * Returns detailed cost breakdown by cost groups (KG 410-480)
+ */
+export async function estimateCosts(
+  request: CostEstimationRequest
+): Promise<CostEstimationResponse> {
+  const response = await fetch(`${API_URL}/estimate-costs`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ detail: "Unknown error" }));
+    throw new Error(error.detail || `API Error: ${response.statusText}`);
+  }
+
+  return response.json();
+}
+
