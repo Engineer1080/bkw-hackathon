@@ -1,4 +1,4 @@
-# BKW AI Planning Assistant 🏗️
+# Spatium AI 🏗️
 
 Modern Next.js web application for automated building planning with AI. Built for the BKW Engineering x TUM.ai Hackathon 2025.
 

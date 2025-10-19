@@ -423,7 +423,7 @@ export default function Home() {
             <div className="w-10 h-10 bg-gradient-to-br from-bkw-orange to-bkw-blue rounded-lg flex items-center justify-center">
               <Sparkles className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold">BKW AI Assistant</span>
+            <span className="text-2xl font-bold">Spatium AI</span>
           </div>
           <p className="text-slate-400 dark:text-slate-500 mb-6">
             Built for the BKW Engineering x TUM.ai Hackathon 2025

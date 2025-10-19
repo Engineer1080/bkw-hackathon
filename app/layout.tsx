@@ -6,7 +6,7 @@ import { ThemeProvider } from './ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BKW AI Planning Assistant',
+  title: 'Spatium AI',
   description: 'Smarter and more accurate building planning with AI - BKW Engineering x TUM.ai Hackathon 2025',
   icons: {
     icon: [
