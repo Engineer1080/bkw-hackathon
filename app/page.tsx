@@ -61,7 +61,7 @@ export default function Home() {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900 dark:text-white">BKW AI Assistant</h1>
+              <h1 className="text-xl font-bold text-slate-900 dark:text-white">Spatium AI</h1>
               <p className="text-xs text-slate-600 dark:text-slate-400">Smarter Building Planning</p>
             </div>
           </div>
