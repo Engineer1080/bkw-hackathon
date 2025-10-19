@@ -1,6 +1,6 @@
 # BKW AI Planning Assistant 🏗️
 
-Modern Next.js web application for automated building planning with AI. Built for the BKW Engineering Hackathon 2025.
+Modern Next.js web application for automated building planning with AI. Built for the BKW Engineering x TUM.ai Hackathon 2025.
 
 ## Features
 
@@ -209,7 +209,7 @@ npm start
 
 ## License
 
-MIT License - Built for BKW Engineering Hackathon 2025
+MIT License - Built for BKW Engineering x TUM.ai Hackathon 2025
 
 ## Support
 
@@ -217,6 +217,6 @@ For issues or questions, please open an issue on GitHub or contact the team.
 
 ---
 
-**Built with ❤️ for the BKW Engineering Hackathon 2025**
+**Built with ❤️ for the BKW Engineering x TUM.ai Hackathon 2025**
 
 🔗 **Repository**: [https://github.com/Engineer1080/bkw-hackathon](https://github.com/Engineer1080/bkw-hackathon)

@@ -104,7 +104,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 bg-orange-100/90 backdrop-blur-sm text-bkw-orange px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Sparkles className="w-4 h-4" />
-              <span>BKW Engineering Hackathon 2025</span>
+              <span>BKW Engineering x TUM.ai Hackathon 2025</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
@@ -255,7 +255,7 @@ export default function Home() {
             <span className="text-2xl font-bold">BKW AI Assistant</span>
           </div>
           <p className="text-slate-400 dark:text-slate-500 mb-6">
-            Built for the BKW Engineering Hackathon 2025
+            Built for the BKW Engineering x TUM.ai Hackathon 2025
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-600">
             <CheckCircle className="w-4 h-4 text-green-500" />
