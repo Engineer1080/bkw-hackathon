@@ -78,7 +78,7 @@ export default function CostEstimator() {
             KI-Kostenschätzung
           </h2>
           <p className="text-slate-600 dark:text-slate-400">
-            Powered by Claude Sonnet 4.5 - Intelligente TGA-Kostenschätzung nach DIN 276
+            Intelligente TGA-Kostenschätzung nach DIN 276
           </p>
         </div>
 
@@ -298,7 +298,7 @@ export default function CostEstimator() {
                 Kostenschätzung: {result.project_name}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                {result.total_area_m2.toLocaleString("de-DE")} m² • {result.generated_by}
+                {result.total_area_m2.toLocaleString("de-DE")} m²
               </p>
             </div>
           </div>
@@ -483,7 +483,6 @@ export default function CostEstimator() {
           {/* Disclaimer */}
           <div className="text-xs text-slate-500 dark:text-slate-400 text-center border-t border-slate-200 dark:border-slate-700 pt-4">
             <p>{result.disclaimer}</p>
-            <p className="mt-1">Generiert von: {result.generated_by}</p>
           </div>
         </motion.div>
       )}

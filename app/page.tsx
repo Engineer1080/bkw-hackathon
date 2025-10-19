@@ -340,7 +340,7 @@ export default function Home() {
               KI-gestützte <span className="text-gradient">Kostenschätzung</span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Detaillierte TGA-Kostenschätzung nach DIN 276 mit Claude Sonnet 4.5
+              Detaillierte TGA-Kostenschätzung nach DIN 276
             </p>
           </motion.div>
 

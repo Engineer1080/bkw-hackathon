@@ -5,7 +5,7 @@ Modern Next.js web application for automated building planning with AI. Built fo
 ## Features
 
 - 🤖 **AI-Powered Classification**: Automatic room type detection with FastAPI ML backend
-- 💰 **AI Cost Estimation**: Intelligent TGA cost estimation with Claude Sonnet 4.5 (DIN 276 compliant)
+- 💰 **AI Cost Estimation**: Intelligent TGA cost estimation (DIN 276 compliant)
 - 📊 **Performance Analysis**: Heating, cooling, and ventilation calculations
 - 📄 **AI Report Generation**: HOAI-compliant explanatory reports powered by Claude Sonnet 4.5
 - 🎨 **Modern UI**: Beautiful interface with Framer Motion animations
@@ -229,7 +229,7 @@ The report generation typically takes 30-60 seconds as Claude AI generates each 
       "Standort München berücksichtigt"
     ]
   },
-  "generated_by": "Claude Sonnet 4.5",
+  "generated_by": "AI",
   "disclaimer": "Kostenschätzung nach DIN 276, Genauigkeit ±30%, Stand LP2"
 }
 ```
@@ -316,7 +316,7 @@ npm start
 
 - ✅ Updated to Next.js 15
 - ✅ Updated to React 19
-- ✅ Added AI Cost Estimation with Claude Sonnet 4.5
+- ✅ Added AI Cost Estimation
 - ✅ Added modern office hero background
 - ✅ Improved gradient styling for "AI-Powered" text
 - ✅ Enhanced glassmorphism effects
